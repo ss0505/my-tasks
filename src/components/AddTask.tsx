@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-
+import { Header } from '@/components/ui/Header'
 import { Task, taskState } from '@/atoms/taskState'
 import { Button } from '@/components/ui/Button'
 
@@ -30,7 +30,7 @@ export const AddTask: React.FC = () => {
     Tasks.length > 0 ? Tasks[Tasks.length - 1].id + 1 : 1
   return (
     <div>
-      <h1>My Tasks</h1>
+      <Header labelName="My Tasks" />
       <input
         type="text"
         value={inputTitle}
