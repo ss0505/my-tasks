@@ -1,3 +1,5 @@
+'use client'
+
 import { AddTask } from '@/components/AddTask'
 import { TaskList } from '@/components/TaskList'
 

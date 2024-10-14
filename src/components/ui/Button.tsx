@@ -1,3 +1,5 @@
+'use client'
+
 type ButtonProps = {
   labelName: React.ReactNode
   onClick?: (e: any) => void
