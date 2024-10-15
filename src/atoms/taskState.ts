@@ -1,4 +1,5 @@
-import { atom } from 'recoil'
+import { useEffect, useState } from 'react'
+import { atom, useRecoilState } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
 export type Task = {
@@ -42,3 +43,14 @@ export const taskState = atom<Task[]>({
   default: defaultValue,
   effects_UNSTABLE: [persistAtom],
 })
+
+export function useSSR() {
+  const [isInitial, setIsInitial] = useState(true)
+  const [value, setValue] = useRecoilState(taskState)
+
+  useEffect(() => {
+    setIsInitial(false)
+  }, [])
+
+  return [isInitial ? defaultValue : value, setValue] as const
+}
