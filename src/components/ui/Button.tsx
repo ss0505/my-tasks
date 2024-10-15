@@ -1,10 +1,6 @@
 'use client'
 
-type ButtonProps = {
-  labelName: React.ReactNode
-  className: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
+import { ButtonProps } from '@/app/types/type'
 
 export const Button: React.FC<ButtonProps> = ({
   labelName,

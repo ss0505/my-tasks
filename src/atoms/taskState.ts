@@ -1,13 +1,7 @@
+import { Task } from '@/app/types/type'
 import { useEffect, useState } from 'react'
 import { atom, useRecoilState } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
-
-export type Task = {
-  id: number
-  title: string
-  description: string
-  isCompleted: boolean
-}
 
 const { persistAtom } = recoilPersist()
 
