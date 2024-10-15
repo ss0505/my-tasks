@@ -2,9 +2,18 @@
 
 type ButtonProps = {
   labelName: React.ReactNode
-  onClick?: (e: any) => void
+  className: string
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Button: React.FC<ButtonProps> = ({ labelName, onClick }) => {
-  return <button onClick={onClick}>{labelName}</button>
+export const Button: React.FC<ButtonProps> = ({
+  labelName,
+  className,
+  onClick,
+}) => {
+  return (
+    <button onClick={onClick} className={className}>
+      {labelName}
+    </button>
+  )
 }

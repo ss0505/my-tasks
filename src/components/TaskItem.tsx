@@ -22,13 +22,30 @@ export const TaskItem: React.FC<TaskItemProps> = ({ item }) => {
   const deleteItem = (item: Task) => {
     setTasks(tasks.filter((task) => task.id !== item.id))
   }
+
   return (
-    <div>
-      <p className="mr-[10px]">{item.isCompleted ? '完了' : '未完了'}</p>
-      <div>{item.title}</div>
-      <div className="mr-[10px]">{item.description}</div>
-      <Button labelName="更新" onClick={() => updateItem(item)} />
-      <Button labelName="削除" onClick={() => deleteItem(item)} />
+    <div className="border border-[#3E3B3B] border-solid w-[326px] h-[124px] mb-[26px] bg-white ml-[14px] mr-[36px]">
+      <div className="flex items-center mt-[9px] ml-[7px]">
+        <p className="font-alNile font-normal text-[18px] leading-[24.57px] mr-[22px]">
+          {item.isCompleted ? '完了' : '未完了'}
+        </p>
+        <p className="font-alNile font-normal text-[18px] leading-[24.57px]">
+          タイトル: {item.title}
+        </p>
+      </div>
+      <p className="font-alNile font-normal text-[18px] leading-[24.57px] mt-[8px] ml-[3px]">
+        Description: {item.description}
+      </p>
+      <Button
+        labelName="更新"
+        onClick={() => updateItem(item)}
+        className="bg-[#1AC822] text-white w-[62px] h-[40px] rounded-[10px] mr-[7px] ml-[181px]"
+      />
+      <Button
+        labelName="削除"
+        onClick={() => deleteItem(item)}
+        className="bg-[#C4C4C4] text-white w-[62px] h-[40px] rounded-[10px]"
+      />
     </div>
   )
 }
