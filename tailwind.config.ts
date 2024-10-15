@@ -11,7 +11,12 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        limeGreen: '#1AC822',
       },
+    },
+    fontFamily: {
+      alNile: ['Al Nile', 'sans-serif'],
+      monda: ['Monda', 'sans-serif'],
     },
   },
   plugins: [],
