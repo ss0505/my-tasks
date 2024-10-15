@@ -1,26 +1,27 @@
 'use client'
 
-import { Task, useSSR } from '@/atoms/taskState'
+import { MyTask } from '@/app/types/type'
 import { Button } from '@/components/ui/Button'
+import { useMyTaskState } from '@/hooks/useMyTaskState'
 
-export const TaskItem: React.FC = () => {
-  const [tasks, setTasks] = useSSR()
-  const updateItem = (item: Task) => {
+export const MyTaskItem: React.FC = () => {
+  const [myTasks, setTasks] = useMyTaskState()
+  const updateTask = (item: MyTask) => {
     setTasks(
-      tasks.map((task) =>
-        task.id === item.id
-          ? { ...task, isCompleted: !task.isCompleted }
-          : task,
+      myTasks.map((myTask) =>
+        myTask.id === item.id
+          ? { ...myTask, isCompleted: !myTask.isCompleted }
+          : myTask,
       ),
     )
   }
-  const deleteItem = (item: Task) => {
-    setTasks(tasks.filter((task) => task.id !== item.id))
+  const deleteTask = (item: MyTask) => {
+    setTasks(myTasks.filter((myTask) => myTask.id !== item.id))
   }
 
   return (
     <>
-      {tasks.map((item) => (
+      {myTasks.map((item) => (
         <div
           key={item.id}
           className="border border-[#3E3B3B] border-solid w-[326px] h-[124px] mb-[26px] bg-white ml-[14px] mr-[36px]"
@@ -38,12 +39,12 @@ export const TaskItem: React.FC = () => {
           </p>
           <Button
             labelName="更新"
-            onClick={() => updateItem(item)}
+            onClick={() => updateTask(item)}
             className="bg-[#1AC822] text-white w-[62px] h-[40px] rounded-[10px] mr-[7px] ml-[181px]"
           />
           <Button
             labelName="削除"
-            onClick={() => deleteItem(item)}
+            onClick={() => deleteTask(item)}
             className="bg-[#C4C4C4] text-white w-[62px] h-[40px] rounded-[10px]"
           />
         </div>

@@ -1,15 +1,16 @@
 'use client'
 
-import { Task, taskState } from '@/atoms/taskState'
+import { MyTask } from '@/app/types/type'
+import { myTaskState } from '@/atoms/myTaskState'
 import { Button } from '@/components/ui/Button'
 import { Header } from '@/components/ui/Header'
 import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 
-export const AddTask: React.FC = () => {
+export const AddMyTask: React.FC = () => {
   const [inputTitle, setInputTitle] = useState('')
   const [inputDescription, setInputDescription] = useState('')
-  const setTasks = useSetRecoilState(taskState)
+  const setTasks = useSetRecoilState(myTaskState)
   const addTask = () => {
     if (inputTitle === '' || inputDescription === '') {
       return
@@ -26,7 +27,7 @@ export const AddTask: React.FC = () => {
     setInputTitle('')
     setInputDescription('')
   }
-  const getId = (Tasks: Task[]) =>
+  const getId = (Tasks: MyTask[]) =>
     Tasks.length > 0 ? Tasks[Tasks.length - 1].id + 1 : 1
   return (
     <div className="grid grid-cols-1 justify-items-center mb-[79px]">

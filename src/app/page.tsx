@@ -1,13 +1,13 @@
 'use client'
 
-import { AddTask } from '@/components/AddTask'
-import { TaskList } from '@/components/TaskList'
+import { AddMyTask } from '@/components/AddMyTask'
+import { MyTaskList } from '@/components/MyTaskList'
 
 export default function MyTasks() {
   return (
     <main>
-      <AddTask />
-      <TaskList />
+      <AddMyTask />
+      <MyTaskList />
     </main>
   )
 }

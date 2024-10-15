@@ -1,4 +1,4 @@
-export type Task = {
+export type MyTask = {
   id: number
   title: string
   description: string
