@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-// import { recoilPersist } from 'recoil-persist'
+import { recoilPersist } from 'recoil-persist'
 
 export type Task = {
   id: number
@@ -8,35 +8,37 @@ export type Task = {
   isCompleted: boolean
 }
 
-// const { persistAtom } = recoilPersist()
+const { persistAtom } = recoilPersist()
+
+const defaultValue = [
+  {
+    id: 1,
+    title: '筋トレ1',
+    description: '胸トレ',
+    isCompleted: false,
+  },
+  {
+    id: 2,
+    title: '筋トレ2',
+    description: '背中トレ',
+    isCompleted: true,
+  },
+  {
+    id: 3,
+    title: '筋トレ',
+    description: '肩、腕トレ',
+    isCompleted: false,
+  },
+  {
+    id: 4,
+    title: '筋トレ',
+    description: '脚トレ',
+    isCompleted: true,
+  },
+]
 
 export const taskState = atom<Task[]>({
   key: 'taskState',
-  default: [
-    {
-      id: 1,
-      title: '筋トレ1',
-      description: '胸トレ',
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: '筋トレ2',
-      description: '背中トレ',
-      isCompleted: true,
-    },
-    {
-      id: 3,
-      title: '筋トレ',
-      description: '肩、腕トレ',
-      isCompleted: false,
-    },
-    {
-      id: 4,
-      title: '筋トレ',
-      description: '脚トレ',
-      isCompleted: true,
-    },
-  ],
-  // effects_UNSTABLE: [persistAtom],
+  default: defaultValue,
+  effects_UNSTABLE: [persistAtom],
 })
