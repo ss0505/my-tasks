@@ -13,6 +13,7 @@ export const AddMyTask: React.FC = () => {
   const setTasks = useSetRecoilState(myTaskState)
   const addTask = () => {
     if (inputTitle === '' || inputDescription === '') {
+      alert("タイトルまたは内容が空です。")
       return
     }
     setTasks((oldTasks) => [
