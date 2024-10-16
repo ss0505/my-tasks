@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { Header } from '@/components/ui/Header'
 import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
+import { escapeHtml } from '@/lib/utils'
 
 export const AddMyTask: React.FC = () => {
   const [inputTitle, setInputTitle] = useState('')
@@ -13,14 +14,15 @@ export const AddMyTask: React.FC = () => {
   const setTasks = useSetRecoilState(myTaskState)
   const addTask = () => {
     if (inputTitle === '' || inputDescription === '') {
+      alert("タイトルまたは内容が空です。")
       return
     }
     setTasks((oldTasks) => [
       ...oldTasks,
       {
         id: getId(oldTasks),
-        title: inputTitle,
-        description: inputDescription,
+        title: escapeHtml(inputTitle),
+        description: escapeHtml(inputDescription),
         isCompleted: false,
       },
     ])
