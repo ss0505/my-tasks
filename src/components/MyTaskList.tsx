@@ -11,9 +11,7 @@ export const MyTaskList: React.FC = () => {
         labelName="LIST"
         className="font-alNile font-normal leading-[43.68px] tracking-[.20em] text-[#3DB156] text-[32px] text-center mt-[23px] mb-[21px]"
       />
-      <div className="overflow-y-scroll">
-        <MyTaskItem />
-      </div>
+      <MyTaskItem />
     </div>
   )
 }
