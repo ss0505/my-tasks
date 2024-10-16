@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/Button'
 import { Header } from '@/components/ui/Header'
 import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { escapeHtml } from '@/lib/utils'
 
 export const AddMyTask: React.FC = () => {
   const [inputTitle, setInputTitle] = useState('')
@@ -21,8 +20,8 @@ export const AddMyTask: React.FC = () => {
       ...oldTasks,
       {
         id: getId(oldTasks),
-        title: escapeHtml(inputTitle),
-        description: escapeHtml(inputDescription),
+        title: inputTitle,
+        description: inputDescription,
         isCompleted: false,
       },
     ])
