@@ -27,10 +27,10 @@ export const MyTaskItem: React.FC = () => {
           className="border border-[#3E3B3B] border-solid w-[326px] mb-[26px] bg-white"
         >
           <div className="flex items-center mt-[9px] ml-[7px]">
-            <p className="font-alNile font-normal text-[18px] leading-[24.57px] mr-[22px] align-top">
+            <p className="w-[54px] font-alNile font-normal text-[18px] leading-[24.57px] mr-[4px]">
               {item.isCompleted ? '完了' : '未完了'}
             </p>
-            <p className="font-alNile font-normal text-[18px] leading-[24.57px] align-top">
+            <p className="font-alNile font-normal text-[18px] leading-[24.57px]">
               タイトル:&ensp;
             </p>
             <div className="flex flex-col">
@@ -45,7 +45,7 @@ export const MyTaskItem: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center">
-            <p className="font-alNile font-normal text-[18px] leading-[24.57px] mt-[8px] ml-[4px] align-top">
+            <p className="font-alNile font-normal text-[18px] leading-[24.57px] mt-[8px] ml-[4px]">
               Description:&ensp;
             </p>
             <div className="flex flex-col">
